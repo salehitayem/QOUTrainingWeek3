@@ -29,4 +29,9 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String> handleCategoryFoundException(CategoryFoundException ex) {
         return ResponseEntity.status(409).body(ex.getMessage());
     }
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<String> handleGeneralException(Exception ex) {
+        System.out.println(ex.getMessage());
+        return ResponseEntity.status(500).body("An unexpected error occurred: ");
+    }
 }

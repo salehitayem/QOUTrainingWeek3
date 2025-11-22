@@ -38,9 +38,9 @@ public class ItemController {
         return service.getAllItems();
     }
 
-    @PutMapping("/{barcode}/{categoryId}")
-    public Item updateItem(@PathVariable String barcode, @RequestBody Item item, @PathVariable int categoryId) {
-        return service.updateItem(barcode, item.getName(), item.getPrice(), categoryId);
+    @PutMapping("/{barcode}")
+    public Item updateItem(@PathVariable String barcode, @RequestBody Item item) {
+        return service.updateItem(barcode, item.getName(), item.getPrice(), item.getCategoryId());
     }
 
     @DeleteMapping("/{barcode}")

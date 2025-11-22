@@ -1,6 +1,7 @@
 package com.example.itemcared.itemcard.controller;
 
 import com.example.itemcared.itemcard.model.Category;
+import org.springframework.boot.jackson.autoconfigure.JacksonProperties;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -36,7 +37,6 @@ public class CateogryController {
 
     @PutMapping("/{id}")
     public Category updateCategory(@PathVariable int id, @RequestBody Category category) {
-        // we ignore category.id from body and use id from URL
         return service.updateCategory(id, category.getName());
     }
 
